@@ -97,6 +97,7 @@
     * sizes : 조건에 해당하는 이미지의 최적화 출력 크기를 지정
     * w단위 : 이미지의 원본 크기(가로 너비)
     * x단위 : 이미지의 비율 의도  
+    <br />
     ```html
     <img
         srcset="./images/msw_small.png 400w,
@@ -144,9 +145,9 @@
 
 * caption : 표의 제목을 설정하는 태그. table 당 1개만 사용 가능하다.
     ```html
-        <table>
-            <caption>문성운의 표</caption>
-        </table>
+    <table>
+        <caption>문성운의 표</caption>
+    </table>
     ```
 
 * colgroup, col : 표의 열들을 공통적으로 정의하는 컬럼(col)과 그의 집합
@@ -175,25 +176,51 @@
 
 * select, datalist, optgroup, option : 옵션(option, optgroup)의 선택 메뉴(select), 나 자동완성(datalist)을 제공하는 태그
     ```html
-        <select>
-            <option>사과</option>
-            <option>바나나</option>
-            <option>딸기</option>
-        </select>
+    <select>
+        <option>사과</option>
+        <option>바나나</option>
+        <option>딸기</option>
+    </select>
 
-        <input type="text" id="fruits" />
-        <datalist id="fruits">
-            <option>사과</option>
-            <option>바나나</option>
-            <option>딸기</option>
-        </datalist>
+    <input type="text" id="fruits" />
+    <datalist id="fruits">
+        <option>사과</option>
+        <option>바나나</option>
+        <option>딸기</option>
+    </datalist>
     ```
 
 * progress : 작업의 완료 진행률을 표시하는 태그
 
-<br />
+## 전역 속성
+전역 속성이란 모든 HTML 요소에서 공통적으로 사용 가능한 속성을 뜻한다.
+
+* class : 공백으로 구분된 요소의 별칭을 지정하는 속성. CSS 혹은 JS의 요소 선택기를 통해서 요소를 선택하거나 접근할 수 있다.
+
+* id : 문서에서 고유한 식별자를 정의하는 속성. CSS 혹은 JS의 요소 선택기를 통해서 요소를 선택하거나 접근할 수 있다.
+
+* style : 요소에 적용할 CSS를 선언하는 속성
+
+* title : 요소의 정보를 지정하는 속성. 마우스로 해당 요소를 가르키면 작성한 title이 나타난다.
+
+* lang : 요소의 언어를 지정하는 속성. 언어가 바뀌지 않는다면, html 태그에서 한 번만 사용하면 된다.
+
+* data-* : 사용자 정의 데이터를 지정하는 속성
+
+* draggable : 요소가 Drag and Drop API를 사용 가능한지 여부를 지정하는 속성
+
+* hidden : 요소를 숨길 때 사용하는 속성
+
+* tabindex : Tab키를 이용해 요소를 순차적으로 포커스 탐색할 순서를 지정하는 속성
+
+## 특수기호
+
+ * &nbsp : 띄어쓰기
+ * &lt, &gt : <, >
+
 <br />
 <strong>HTML 태그는 보여지는 모습이 아닌 각 태그 고유의 의미에 집중 해야한다!</strong>
+<br />
 <br />
 
 HTML References :  
