@@ -98,6 +98,7 @@
     * w단위 : 이미지의 원본 크기(가로 너비)
     * x단위 : 이미지의 비율 의도  
     <br />
+    
     ```html
     <img
         srcset="./images/msw_small.png 400w,
