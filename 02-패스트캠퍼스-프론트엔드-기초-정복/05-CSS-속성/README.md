@@ -48,3 +48,53 @@
 * overflow : 요소의 크기 이상으로 내용(자식요소)이 넘쳤을 때, 내용의 보여짐을 제어
 
 * opacity : 요소의 투명도를 지정 (기본값 1)
+
+## 글꼴
+
+* font : 글자 관련 속성들을 지정
+
+    * ```font: 기울기 두께 크기 / 줄높이 글꼴;```
+    * ```font: italic bold 20px / 1.5 "Arial", sans-serif;```
+    * 단축 속성으로 사용하려면 font-size와 font-family를 필수로 입력해야 한다.
+    * font-style : 글자 기울기를 지정
+    * font-weight : 글자의 두께를 지정 (normal==400, bold==700)
+    * font-size : 글자의 크기를 지정 (기본값 16px)
+    * line-height : 줄 높이 지정
+    * font-family : ```font-family: 글꼴후보1, 글꼴후보2, ..., 글꼴계열;```
+
+## 문자
+
+* color : 문자의 색상을 지정
+
+    * Hex 색상코드 : ```#000000```
+    * RGB : 빛의 삼원색 ```rgb(255, 255, 255)```
+    * RGBA : 빛의 삼원색, 투명도 ```rgba(255, 0, 0, .5)```
+
+* text-align : 문자 정렬 방식을 지정
+
+* text-indent : 첫번째 줄의 들여쓰기를 지정
+
+* text-decoration : 선(line)으로 문자의 장식을 설정
+
+* letter-spacing : 글자 사이의 간격을 설정
+
+* word-spacing : 단어 사이(띄어쓰기)의 간격을 설정
+
+## 정렬
+
+* float : 요소를 좌우 방향으로 띄움.(수평 정렬) 신문이나 칼럼 등에서 사진과 글을 자연스럽게 배치할 때 사용한다.
+
+    * ```float: left;```
+    * 다음 형제 요소에 ```clear: left;``` 를 추가하여 해제할 수 있다.
+
+    ```css
+    .clearfix::after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+    ```
+
+    * float 속성이 추가된 요소는 대부분 display 속성의 값이 block로 변경된다.
+
+    * 
