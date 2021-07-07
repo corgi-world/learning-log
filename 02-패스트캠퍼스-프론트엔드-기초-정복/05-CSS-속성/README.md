@@ -86,6 +86,7 @@
 
     * ```float: left;```
     * 다음 형제 요소에 ```clear: left;``` 를 추가하여 해제할 수 있다.
+    <br/>
 
     ```css
     .clearfix::after {
@@ -97,4 +98,31 @@
 
     * float 속성이 추가된 요소는 대부분 display 속성의 값이 block로 변경된다.
 
-    * 
+* position : 요소의 위치 지정 방법의 유형을 설정
+
+    * relative : 요소 자신을 기준으로 배치
+        * 기준이 되는 원래 자신의 위치는 계속해서 형제 요소들에게 영향을 받고, 주게된다. 
+    * absolute : 위치 상의 부모 요소를 기준으로 배치
+        * 부모 요소 중 position 속성이 설정된 요소가 위치 상의 부모요소이다.
+        * 모든 부모 요소에 position 속성이 없으면 뷰 포트를 기준으로 배치된다. (body -> html -> 뷰 포트)
+    * fixed : 브라우저(뷰 포트)를 기준으로 배치된다. 스크롤을 내려도 해당 위치에 고정된다.
+    * sticky : 스크롤 영역 기준으로, 각 요소의 범위 내에서 스크롤을 이동하여도 top, bottom, left, right 중 설정된 위치에 배치된다.
+
+* 요소 쌓임 순서 : 요소가 쌓여 있는 순서를 통해 어떤 요소가 사용자와 가깝게 있는지 (더 위에 쌓이는지)를 결정
+
+    1. position 속성에 값이 있을 경우 가장 위에 쌓인다.
+    2. position이 모두 존재한다면 z-index 속성의 숫자 값이 높을 수록 위에 쌓인다.
+    3. 2번 항목까지 모두 동일하다면, HTML의 나중에 작성된 코드일 수록 위에 쌓인다. 
+
+* position의 display 수정 : position이 absolute나 fixed로 설정된 요소는 display 속성값이 대부분 block으로 수정된다. (display 속성이 flex로 지정된 경우 제외)
+
+## 배경
+
+* background : 요소의 배경을 설정
+
+    * ```background: 색상 이미지경로 반복 위치 스크롤특성;```
+    * background-color : 배경 색상
+    * background-image : 하나 이상의 배경 이미지
+    * background-repeat : 배경 이미지의 반복 여부
+    * background-position : 배경 이미지의 위치
+    * background-attachment : 배경 이미지의 스크롤 여부
