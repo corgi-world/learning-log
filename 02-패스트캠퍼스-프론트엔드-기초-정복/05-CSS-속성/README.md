@@ -82,19 +82,18 @@
 
 ## 정렬
 
-* float : 요소를 좌우 방향으로 띄움.(수평 정렬) 신문이나 칼럼 등에서 사진과 글을 자연스럽게 배치할 때 사용한다.
+* float : 요소를 좌우 방향으로 띄움. (수평 정렬) 신문이나 칼럼 등에서 사진과 글을 자연스럽게 배치할 때 사용한다.
 
     * ```float: left;```
     * 다음 형제 요소에 ```clear: left;``` 를 추가하여 해제할 수 있다.
-    <br/>
 
-    ```css
-    .clearfix::after {
-        content: "";
-        clear: both;
-        display: block;
-    }
-    ```
+        ```css
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: block;
+        }
+        ```
 
     * float 속성이 추가된 요소는 대부분 display 속성의 값이 block로 변경된다.
 
@@ -125,4 +124,17 @@
     * background-image : 하나 이상의 배경 이미지
     * background-repeat : 배경 이미지의 반복 여부
     * background-position : 배경 이미지의 위치
-    * background-attachment : 배경 이미지의 스크롤 여부
+    * background-attachment : 배경 이미지의 스크롤 여부 (fixed 속성으로 parallax scroll 구현 가능)
+        ```css
+        section {
+            height: 300px;
+            background-image: url("");
+            background-size: auto 100%;
+            background-attachment: fixed;
+        }
+        ```
+    * background-size : 배경 이미지의 크기를 지정
+        * auto : 배경 이미지가 원래의 크기로 표시됨
+        * cover : 배경 이미지의 크기 비율을 유지하며, 요소의 더 넓은 너비(가로, 세로 중)에 맞춰지기 때문에 이미지가 잘릴 수 있음
+        * contain : 배경 이미지의 크기 비율을 유지하며 요소의 더 짧은 너비에 맞춰지기 때문에 이미지가 잘리지 않음
+
