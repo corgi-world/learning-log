@@ -125,6 +125,7 @@
     * background-repeat : 배경 이미지의 반복 여부
     * background-position : 배경 이미지의 위치
     * background-attachment : 배경 이미지의 스크롤 여부 (fixed 속성으로 parallax scroll 구현 가능)
+    
         ```css
         section {
             height: 300px;
@@ -137,4 +138,3 @@
         * auto : 배경 이미지가 원래의 크기로 표시됨
         * cover : 배경 이미지의 크기 비율을 유지하며, 요소의 더 넓은 너비(가로, 세로 중)에 맞춰지기 때문에 이미지가 잘릴 수 있음
         * contain : 배경 이미지의 크기 비율을 유지하며 요소의 더 짧은 너비에 맞춰지기 때문에 이미지가 잘리지 않음
-
