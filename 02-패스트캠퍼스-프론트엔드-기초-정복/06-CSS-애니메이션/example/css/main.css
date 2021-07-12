@@ -1,0 +1,52 @@
+.cards {
+	padding: 20px;
+}
+
+.card {
+	width: 150px;
+	height: 220px;
+	position: relative;
+	perspective: 600px;
+	float: left;
+	margin-right: 15px;
+}
+.card:last-child {
+	margin-right: 0;
+}
+
+.card .face {
+	width: 150px;
+	height: 220px;
+	border: 1px solid lightgray;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: .8s;
+	position: absolute;
+	backface-visibility: hidden;
+	background-color: white;
+}
+.card .face-front {
+	transform: rotateY(0deg);
+	background-image: url("../images/pattern.png");
+}
+.card:active .face-front {
+	transform: rotateY(-180deg);
+}
+
+.card .face-back {
+	transform: rotateY(180deg);
+}
+.card:active .face-back {
+	transform: rotateY(0);
+}
+
+.card .face-front img {
+	width: 90px;
+	filter: grayscale();
+	opacity: .7;
+}
+.card .face-back img {
+	height: 120px;
+}
