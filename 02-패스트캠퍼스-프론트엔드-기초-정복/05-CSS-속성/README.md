@@ -71,6 +71,7 @@
     * RGBA : 빛의 삼원색, 투명도 ```rgba(255, 0, 0, .5)```
 
 * text-align : 문자 정렬 방식을 지정
+    * ```text-align: justify;```
 
 * text-indent : 첫번째 줄의 들여쓰기를 지정
 
