@@ -71,17 +71,20 @@
     * grid : Block 특성의 Grid Container를 정의
     * inline-grid : Inline 특성의 Grid Container를 정의
 
-* grid-template-rows, -columns : 명시적으로 행 또는 열의 크기를 정의
+* grid-template : -rows, -columns, -areas의 단축 속성
+
+* grid-template-rows, -columns : 명시적으로 행 또는 열의 크기를 정의한다. [, ] 를 사용해서 선의 이름을 정의할 수 있다.
     * ```grid-template-rows: 100px 100px;```
     * ```grid-template-columns: 1fr 1fr;```
     * ```grid-template-columns: repeat(3, 1fr);```
+    * ```grid-template-columns: [msw-start] 100px [msw] 200px [msw-end];```
 
 * grid-template-areas : 지정된 그리드 영역 이름을 참조해 그리드 템플릿을 생성합니다.
 
     ```css
     .container {
         display: grid;
-        grid-template-rows: repeat(3, 100px);
+        grid-template-rows: 80px 350px 130px;
         grid-template-columns: repeat(3, 1fr);
         grid-template-areas:
             "header header header"
@@ -113,11 +116,115 @@
     * ```grid-auto-columns: 1fr;```
 
 * grid-auto-flow : 배치하지 않은 item을 어떤 방식의 자동 배치 알고리즘으로 처리할지 정의
-    * ㅇ
+    * ```grid-auto-flow: row dense;```
+
+* align-content : 그리드 내의 content를 수직 정렬
+    * ```align-content: center;```
+
+* justify-content : 그리드 내의 content를 수평 정렬
+    * ```justify-content: center;```
+
+* align-items : 그리드 내의 item을 해당 칸을 기준으로 수직 정렬
+    * ```align-items: center;```
+
+* justify-items : 그리드 내의 item을 해당 칸을 기준으로 수평 정렬
+    * ```justify-items: center;```
 
 ## Grid Items 속성
 
-* grid-row : ```grid-row: 1 / 3;``` 1번에서 3번까지 2줄 사용
+* grid-row, -column : start / end 로 item을 배치
+    * ```grid-row: 1 / 3;```
+    * ```grid-column: 1 / 3;```
+    * ```grid-column: msw-start / msw-end;```
+    * ```grid-column: 2 / span 3;```
+    * ```grid-column: span 3 / 5;```
 
-* grid-column : ```grid-column: 1 / 3;``` 1번에서 3번까지 2칸 사용
+        ```css
+        .item {
+            grid-row: 1 / 5;
+            grid-column: 1 / 5; 
+        }
+        .item {
+            grid-area: 1 / 1 / 5 / 5; /* rs cs re ce */
+        }
+        ```
 
+* align-self : item의 수직 축을 정렬
+    * ```align-self: center;```
+
+* justify-self : item의 수평 축을 정렬
+    * ```justify-self: center;```
+
+* order : 그리드 아이템이 자동 배치되는 순서를 변경
+    * ```order: 1;```
+
+* z-index : 아이템이 쌓이는 순서를 변경
+    * ```z-index: 1;```
+
+## Grid Items 함수
+
+* repeat() : 행/열의 크기 정의를 반복
+    * ```repeat(9, 100px);```
+    * ```repeat(3, 100px 200px 300px);```
+
+* minmax() : 행/열의 최소/최대 크기를 정의
+    * ```grid-template-columns: minmax(100px, 1fr) minmax(200px, 1fr);```
+
+* fit-content : 행/열의 크기를 item 내부의 content 크기에 맞춘다. 매개변수로 최대 크기를 지정한다. 최소 너비는 한 단어의 너비
+    * ```grid-template-columns: fit-content(300px) fit-content(300px);```
+
+## Grid 단위
+
+* fr : 사용 가능한 공간에 대한 비율
+
+* min-content : item이 포함하는 내용의 최소 크기
+    * 문자가 영어일 경우 최소 너비는 한 단어의 너비
+    * 한글일 경우는 ```word-break: keep-all;``` 필요
+
+* max-content : item이 포함하는 내용의 최대 크기
+
+* auto-fill, auto-fit : 행과 열의 개수를 그리드 container 및 행/열 크기에 맞게 자동적으로 조정
+    * auto-fill은 남는 공간을 그대로 유지한다.
+    * auto-fit은 공간을 남김 없이 모두 사용한다.
+    * ```grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));```
+
+## Grid Simple Example
+```html
+<div class="container">
+    <header>HEADER</header>
+    <main>MAIN</main>
+    <aside>ASIDE</aside>
+    <footer>FOOTER</footer>
+</div>
+```
+
+```css
+.container {
+    display: grid;
+    grid-template-rows: 80px 350px 130px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "header header header"
+        "main main aside"
+        "footer footer footer";
+}
+.container > * {
+    border: 10px solid red;
+}
+header {
+    grid-area: header;
+    /* grid-area: 1 / 1 / 1 / 4; */
+}
+main {
+    grid-area: main;
+    /* grid-area: 2 / 1 / 2 / 3; */
+}
+aside {
+    grid-area: aside;
+    /* grid-area: 2 / 3 / 2 / 4; */
+}
+footer {
+    grid-area: footer;
+    /* grid-area: 3 / 1 / 3 / 4; */
+}
+```
