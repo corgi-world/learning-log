@@ -38,3 +38,20 @@ https://fonts.google.com/
 
 ## reset.css
 https://cdnjs.com/libraries/meyer-reset
+
+## BEM 작명 규칙
+
+* __ : 무엇무엇의 일부분
+    * ```class="body__container"```
+
+* -- : 무엇무엇의 상태
+    * ```class="btn--danger"```
+
+## Vendor Prefix
+각 웹 브라우저가 제공하는 표준이 아닌 기능을 사용하기 위해서는 속성에 접두사를 붙여야 한다.
+
+```css
+.input--text::-webkit-input-placeholder { color: #cacaca; }
+.input--text::-ms-input-placeholder { color: #cacaca; }
+.input--text::-moz-input-placeholder { color: #cacaca; }
+```
