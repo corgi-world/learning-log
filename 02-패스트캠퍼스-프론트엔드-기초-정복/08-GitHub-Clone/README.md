@@ -18,7 +18,6 @@ https://github.com/Heropcode/github-responsive
     * ```property="og:description" content="GitHub clone coding / GitHub is..."```
     * ```property="og:image" content="img/logo__github.png"```
     * ```property="og:url" content="https://github.com"```
-
     * ```property="twitter:card" content="summary"```
     * ```property="twitter:site" content="GitHub"```
     * ```property="twitter:title" content="Build software better, together"```
