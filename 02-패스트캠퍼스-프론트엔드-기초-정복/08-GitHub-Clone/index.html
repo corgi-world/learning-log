@@ -33,6 +33,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" media="(max-width: 1024px)" href="css/main_medium.css">
+    <link rel="stylesheet" media="all and (max-width: 768px)" href="css/main_small.css">
 </head>
 <body>
     <div class="body__container">
@@ -45,7 +47,7 @@
                     <div class="logo">
                         <a href="#">GitHub</a>
                     </div>
-                    <ul class="main-menu">
+                    <ul class="main-menu toggle">
                         <li><a href="#">Personal</a></li>
                         <li><a href="#">Open source</a></li>
                         <li><a href="#">Business</a></li>
@@ -53,7 +55,7 @@
                     </ul>
                 </div>
 
-                <div class="sign-group float--right">
+                <div class="sign-group float--right toggle">
                     <div class="btn-group">
                         <a href="#" class="btn sign-in">Sign in</a>
                         <a href="#" class="btn btn--primary sign-up">Sign up</a>
@@ -67,6 +69,10 @@
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Support</a></li>
                     </ul>
+                </div>
+
+                <div id="toggle-btn">
+                    Header Menuu Toggle Button
                 </div>
                 
             </div>
@@ -102,7 +108,6 @@
         </section>
 
         <!-- FEATURE -->
-
         <section class="section section--feature">
             <div class="summary">
                 <h2 class="summary__title">
@@ -226,5 +231,7 @@
         }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTQIlxBn5AfKGvsfJiormAE1esN3fcCkg&callback=initMap" async defer></script>
+    
+    <script src="main.js"></script>
 </body>
 </html>
