@@ -35,9 +35,28 @@ def shellSort(a, n):
             a[j] = v
         h = int(h / 3)
 
+def quickSort(a, l, r):
+    if r > l:
+        v, i, j = a[r], l-1, r
+        while True:
+            i += 1
+            while a[i] < v:
+                i += 1
+            j -= 1
+            while a[j] > v:
+                j -=1
+            if i >= j:
+                break
+            a[i], a[j] = a[j], a[i]
+        a[i], a[r] = a[r], a[i]
+        quickSort(a, l, i-1)
+        quickSort(a, i+1, r)
+
 ################################################
 
 import random, time
+import sys
+sys.setrecursionlimit(10000)
 
 def checkSort(a, n):
     isSorted = True
@@ -51,7 +70,7 @@ def checkSort(a, n):
     else:
         print("정렬 오류 발생")
 
-N = 15000
+N = 300000
 
 a = []
 a.append(None)
@@ -59,40 +78,51 @@ for i in range(N):
     a.append(random.randint(1, N))
 
 start_time = time.time()
-selectionSort(a, N)
+quickSort(a, 1, N)
 end_time = time.time() - start_time
 print("선택 정렬의 실행 시간 (N=%d) : %0.3f"%(N, end_time))
 checkSort(a, N)
 
-a = []
-a.append(None)
-for i in range(N):
-    a.append(random.randint(1, N))
+# a = []
+# a.append(None)
+# for i in range(N):
+#     a.append(random.randint(1, N))
 
-start_time = time.time()
-bubbleSort(a, N)
-end_time = time.time() - start_time
-print("버블 정렬의 실행 시간 (N=%d) : %0.3f"%(N, end_time))
-checkSort(a, N)
+# start_time = time.time()
+# selectionSort(a, N)
+# end_time = time.time() - start_time
+# print("선택 정렬의 실행 시간 (N=%d) : %0.3f"%(N, end_time))
+# checkSort(a, N)
 
-a = []
-a.append(None)
-for i in range(N):
-    a.append(random.randint(1, N))
+# a = []
+# a.append(None)
+# for i in range(N):
+#     a.append(random.randint(1, N))
 
-start_time = time.time()
-insertionSort(a, N)
-end_time = time.time() - start_time
-print("삽입 정렬의 실행 시간 (N=%d) : %0.3f"%(N, end_time))
-checkSort(a, N)
+# start_time = time.time()
+# bubbleSort(a, N)
+# end_time = time.time() - start_time
+# print("버블 정렬의 실행 시간 (N=%d) : %0.3f"%(N, end_time))
+# checkSort(a, N)
 
-a = []
-a.append(None)
-for i in range(N):
-    a.append(random.randint(1, N))
+# a = []
+# a.append(None)
+# for i in range(N):
+#     a.append(random.randint(1, N))
 
-start_time = time.time()
-shellSort(a, N)
-end_time = time.time() - start_time
-print("쉘 정렬의 실행 시간 (N=%d) : %0.3f"%(N, end_time))
-checkSort(a, N)
+# start_time = time.time()
+# insertionSort(a, N)
+# end_time = time.time() - start_time
+# print("삽입 정렬의 실행 시간 (N=%d) : %0.3f"%(N, end_time))
+# checkSort(a, N)
+
+# a = []
+# a.append(None)
+# for i in range(N):
+#     a.append(random.randint(1, N))
+
+# start_time = time.time()
+# shellSort(a, N)
+# end_time = time.time() - start_time
+# print("쉘 정렬의 실행 시간 (N=%d) : %0.3f"%(N, end_time))
+# checkSort(a, N)
