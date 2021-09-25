@@ -78,6 +78,25 @@ def mergeSort(a, l, r):
         for p in range(l, r+1):
             a[p] = b[p]
 
+def heapify(a, h, m):
+    v, j = a[h], 2*h
+    while j <= m:
+        if j < m and a[j] < a[j+1]:
+            j += 1
+        if v >= a[j]:
+            break
+        else:
+            a[int(j/2)] = a[j]
+        j *= 2
+    a[int(j/2)] = v
+
+def heapSort(a, n):
+    for i in range(int(n/2), 0, -1):
+        heapify(a, i, n)
+    for i in range(n-1, 0, -1):
+        a[1], a[i+1] = a[i+1], a[1]
+        heapify(a, 1, i)
+
 ################################################
 
 import random, time
@@ -97,7 +116,7 @@ def checkSort(a, n):
     else:
         print("정렬 오류 발생")
 
-N = 200000
+N = 300000
 
 a = []
 a.append(None)
@@ -106,9 +125,9 @@ for i in range(N):
 b = copy.deepcopy(a)
 
 start_time = time.time()
-mergeSort(a, 1, N)
+heapSort(a, N)
 end_time = time.time() - start_time
-print("선택 정렬의 실행 시간 (N=%d) : %0.3f"%(N, end_time))
+print("히프 정렬의 실행 시간 (N=%d) : %0.3f"%(N, end_time))
 checkSort(a, N)
 
 # a = []
