@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        font-size: 22px;
+        font-weight: 600;
+      }
+
+      .parents_top {
+        display: grid;
+        gap: 5px;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-template-rows: 100px;
+      }
+      .parents_bottom {
+        display: grid;
+        gap: 5px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-template-rows: 100px;
+      }
+      .parents {
+        display: grid;
+        gap: 5px;
+        grid-template-columns: repeat(auto-fit, minmax(20px, max-content));
+        grid-template-rows: 100px;
+      }
+
+      div div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+      .item:nth-child(odd) {
+        background-color: #2ecc71;
+      }
+      .item:nth-child(even) {
+        background-color: #3498db;
+      }
+    </style>
+  </head>
+  <body>
+    <p>auto-fill</p>
+    <div class="parents_top">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+    </div>
+
+    <p>auto-fit</p>
+    <div class="parents_bottom">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+    </div>
+
+    <p>min, max-content</p>
+    <div class="parents">
+      <div class="item">hello i</div>
+      <div class="item">hello i am msw</div>
+      <div class="item">hello i am</div>
+      <div class="item">hello i am msw</div>
+      <div class="item">hello i am msw</div>
+      <div class="item">hello msw</div>
+      <div class="item">hello i am msw</div>
+      <div class="item">hello i am msw</div>
+      <div class="item">hello i am msw</div>
+      <div class="item">hello i am msw</div>
+      <div class="item">hello i am msw</div>
+      <div class="item">hello i am msw</div>
+    </div>
+  </body>
+</html>

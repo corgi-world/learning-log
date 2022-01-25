@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .parents {
+        height: 100vh;
+        background: beige;
+        display: grid;
+        grid-template-columns: repeat(4, 100px);
+        grid-template-rows: repeat(4, 100px);
+        justify-content: space-around;
+        align-content: center;
+        justify-items: center;
+      }
+
+      div div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
+      .header {
+        background-color: #2ecc71;
+      }
+      .content {
+        background-color: #3498db;
+      }
+      .nav {
+        background-color: #8e44ad;
+      }
+      .footer {
+        background-color: #f39c12;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parents">
+      <div class="header">header</div>
+      <div class="content">content</div>
+      <div class="nav">nav</div>
+      <div class="footer">footer</div>
+      <div class="header">header</div>
+      <div class="content">content</div>
+      <div class="nav">nav</div>
+      <div class="footer">footer</div>
+      <div class="header">header</div>
+      <div class="content">content</div>
+      <div class="nav">nav</div>
+      <div class="footer">footer</div>
+      <div class="header">header</div>
+      <div class="content">content</div>
+      <div class="nav">nav</div>
+      <div class="footer">footer</div>
+    </div>
+  </body>
+</html>
