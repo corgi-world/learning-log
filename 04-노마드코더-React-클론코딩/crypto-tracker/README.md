@@ -216,9 +216,10 @@
    import { useSetRecoilState } from "recoil";
    import { isDarkAtom } from "../atoms";
 
-   function App() {
+   function Coins() {
      const setIsDark = useSetRecoilState(isDarkAtom);
-
+     // setIsDark(false);
+     // setIsDark(true);
      return (
        <>
          <button onClick={() => setIsDark((prev) => !prev)}>Toggle</button>
