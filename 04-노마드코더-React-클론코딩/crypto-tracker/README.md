@@ -157,6 +157,76 @@
    );
    ```
 
+## recoil
+
+1. index.tsx : RecoilRoot로 감싸기
+
+   ```typescript
+   import { RecoilRoot } from "recoil";
+
+   const queryClient = new QueryClient();
+
+   ReactDOM.render(
+     <React.StrictMode>
+       <RecoilRoot>
+         <QueryClientProvider client={queryClient}>
+           <App />
+         </QueryClientProvider>
+       </RecoilRoot>
+     </React.StrictMode>,
+     document.getElementById("root")
+   );
+   ```
+
+2. atoms.ts : 사용할 atom 정의
+
+   ```typescript
+   import { atom } from "recoil";
+
+   export const isDarkAtom = atom({
+     key: "isDark",
+     default: false,
+   });
+   ```
+
+3. useRecoilValue : 값 불러오기
+
+   ```typescript
+   import { useRecoilValue } from "recoil";
+   import { isDarkAtom } from "./atoms";
+
+   function App() {
+     const isDark = useRecoilValue(isDarkAtom);
+
+     return (
+       <>
+         <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+           <GlobalStyle />
+           <Router />
+           <ReactQueryDevtools initialIsOpen={true} />
+         </ThemeProvider>
+       </>
+     );
+   }
+   ```
+
+4. useSetRecoilState : 값 설정하기
+
+   ```typescript
+   import { useSetRecoilState } from "recoil";
+   import { isDarkAtom } from "../atoms";
+
+   function App() {
+     const setIsDark = useSetRecoilState(isDarkAtom);
+
+     return (
+       <>
+         <button onClick={() => setIsDark((prev) => !prev)}>Toggle</button>
+       </>
+     );
+   }
+   ```
+
 ## useEffect 내에서 async 함수 사용하기
 
 - https://merrily-code.tistory.com/117

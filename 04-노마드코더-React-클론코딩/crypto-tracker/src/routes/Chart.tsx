@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { fetchCoinHistory } from "../api";
 
 import ApexChart from "react-apexcharts";
+import { useRecoilValue } from "recoil";
+import { isDarkAtom } from "../atoms";
 
 interface ChartProps {
   coinID: string;
@@ -28,7 +30,7 @@ export default function Chart({ coinID }: ChartProps) {
     fetchCoinHistory(coinID)
   );
 
-  console.log(data);
+  const isDark = useRecoilValue(isDarkAtom);
 
   return (
     <div>
@@ -45,7 +47,7 @@ export default function Chart({ coinID }: ChartProps) {
           ]}
           options={{
             theme: {
-              mode: "dark",
+              mode: isDark ? "dark" : "light",
             },
             chart: {
               toolbar: {
