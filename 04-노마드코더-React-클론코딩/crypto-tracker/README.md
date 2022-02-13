@@ -228,6 +228,49 @@
    }
    ```
 
+5. selector get : 특정 값을 분류하여 받아올 수 있다.
+
+   ```typescript
+   // atoms.tsx
+
+   import { atom, selector } from "recoil";
+
+   export enum Categories {
+     "TODO",
+     "DOING",
+     "DONE",
+   }
+
+   export interface iTodo {
+     text: string;
+     id: number;
+     category: Categories;
+   }
+
+   export const todoState = atom<iTodo[]>({
+     key: "todo",
+     default: [],
+   });
+
+   export const categoryState = atom<iTodo["category"]>({
+     key: "category",
+     default: Categories.TODO,
+   });
+
+   export const todoSelector = selector({
+     key: "todoSelector",
+     get: ({ get }) => {
+       const todos = get(todoState);
+       const category = get(categoryState);
+       return todos.filter((todo) => todo.category === category);
+     },
+   });
+   ```
+
+   ```typescript
+   const todos = useRecoilValue(todoSelector);
+   ```
+
 ## useEffect 내에서 async 함수 사용하기
 
 - https://merrily-code.tistory.com/117
