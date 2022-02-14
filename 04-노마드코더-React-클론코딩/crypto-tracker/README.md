@@ -271,6 +271,54 @@
    const todos = useRecoilValue(todoSelector);
    ```
 
+6. selector set : selector 내부에서 다른 atom의 값을 바꿀 수 있다. ~~atom이 여기저기서 바뀌어서 헷갈릴 것 같은데...~~
+
+   ```typescript
+   import { atom, selector } from "recoil";
+
+   export const minuteState = atom({
+     key: "minutes",
+     default: 0,
+   });
+
+   export const hoursSelector = selector<number>({
+     key: "hoursSelector",
+     get: ({ get }) => {
+       const hours = get(minuteState);
+       return hours / 60;
+     },
+     set: ({ set }, newValue) => {
+       const hours = newValue;
+       const minutes = Number(hours) * 60;
+       set(minuteState, minutes); // minuteState의 값을 바꾼다.
+     },
+   });
+   ```
+
+   ```typescript
+   import React from "react";
+   import { useRecoilState } from "recoil";
+   import { hoursSelector, minuteState } from "./atoms";
+
+   export default function MSW() {
+     const [minutes, setMinutes] = useRecoilState(minuteState);
+     const [hours, setHoursSelector] = useRecoilState(hoursSelector);
+     const onMinutesChange = (event: React.FormEvent<HTMLInputElement>) => {
+       setMinutes(+event.currentTarget.value);
+     };
+     const onHoursChange = (event: React.FormEvent<HTMLInputElement>) => {
+       setHoursSelector(+event.currentTarget.value);
+     };
+
+     return (
+       <div>
+         <input value={minutes} onChange={onMinutesChange} type="number" />
+         <input value={hours} onChange={onHoursChange} type="number" />
+       </div>
+     );
+   }
+   ```
+
 ## useEffect 내에서 async 함수 사용하기
 
 - https://merrily-code.tistory.com/117
