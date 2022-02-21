@@ -102,11 +102,34 @@
   }
   ```
 
+- useLocation, URLSearchParams
+
+  ```javascript
+  import { useLocation } from "react-router-dom";
+
+  export default function Search() {
+    const { search } = useLocation();
+    console.log(search); // ?keyword=dune
+    const keyword = new URLSearchParams(search).get("keyword");
+    console.log(keyword); // dune
+    return null;
+  }
+  ```
+
 - useRouteMatch
 
   ```javascript
   const priceMatch = useRouteMatch(`/${coinID}/price`);
   // null or Object { isExact, path, url }
+  ```
+
+- useHistory
+
+  ```javascript
+  const histroy = useHistory();
+  const onValid = (data: IForm) => {
+    histroy.push(`/search?keyword=${data.keyword}`);
+  };
   ```
 
 ## react-query
