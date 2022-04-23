@@ -271,7 +271,7 @@ $ul.addEventListener("click", function (event) {
   - li 개수가 늘어날 수록 ul에 걸어둔 이벤트가 중복 호출되는 문제가 발생했다.
   - 도대체 원인을 알 수가 없어서 `event.stopImmediatePropagation();` 로 이벤트 전파를 막아 해결한 뒤 제출하였다.
   - pull request에 위의 내용을 상세히 작성했는데, 다른 분께서 render에서 중복 등록되는 것 같다고 지적해 주셨다. ~~정말 감사하면서도 부끄러웠음ㅜㅜ~~
-  - 사실 이런 실수는 할 수도 있는데, 이걸 왜 스스로 못 찾았는지 어이가 없었다.
+  - 사실 이런 실수는 할 수도 있는데, 이걸 왜 스스로 못 찾았는지...
 
     ```javascript
     this.render = () => {
